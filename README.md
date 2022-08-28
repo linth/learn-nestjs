@@ -48,7 +48,7 @@ $ npm run start:dev // to watch for changes in your file, your can run this line
 $ nest --help
 ```
 
-```
+```command
 Usage: nest <command> [options]
 
 Options:
