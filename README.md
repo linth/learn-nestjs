@@ -30,13 +30,13 @@
 ## Installation
 
 ### first step example.
-```
+```command
 $ npm -i -g @nestjs/cli
 $ nest new project_name
 ```
 
 ### execute nestjs service.
-```
+```command
 $ cd project_name
 $ npm run start
 $ npm run start:dev // to watch for changes in your file, your can run this line command.
@@ -44,7 +44,7 @@ $ npm run start:dev // to watch for changes in your file, your can run this line
 
 
 ### use CLI to generate your project what you need.
-```
+```command
 $ nest --help
 ```
 
