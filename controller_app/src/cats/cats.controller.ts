@@ -5,19 +5,32 @@
  *  - https://docs.nestjs.com/controllers
  */
 
-import { Controller, Get, Post, Put, Patch, Delete, Req, HttpCode, Ip, Header, Redirect, Query, Param } from '@nestjs/common';
+import { Controller, Get, Post, Put, Patch, Delete, Req, HttpCode, Ip, Header, Redirect, Query, Param, Res, HttpStatus } from '@nestjs/common';
 import { Request } from 'express';
+// import { Observable, of } from 'rxjs/dist/types';
 
 @Controller('cats')
 export class CatsController {
 
     // Using this built-in method, when a request handler returns a JavaScript object or array, it will automatically be serialized to JSON.
 
-    @Get('')
+    @Get()
+    // please refer to https://docs.nestjs.com/controllers#asynchronicity
     // When it returns a JavaScript primitive type (e.g., string, number, boolean), however, Nest will send just the value without attempting to serialize it.
-    findAll(): string {
-        return 'This action return all cats.';
+    async findAll(): Promise<any[]> {
+        // return 'This action return all cats.';
+        // promise example.
+        let res = [];
+        res.push('dog');
+        res.push('lion');
+
+        return res;
     }
+
+    // @Get('findAll2')
+    // findAll2(): Observable<any[]> {
+    //     return of([]);
+    // }
 
     // url: https://docs.nestjs.com/controllers
 
@@ -33,6 +46,7 @@ export class CatsController {
     @Header('Cache-Control', 'none')
     @HttpCode(204)
     create() {
+        // TODO: Res() has problems, @Res() res: Response
         return `this action adds a new cat.`;
     }
 
@@ -55,7 +69,7 @@ export class CatsController {
         }
     }
 
-    // @param
+    // @Param() example.
     @Get(':id')
     findOne(@Param('id') id: string): string {
         return `the action returns a #${id} cat.`;
