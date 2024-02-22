@@ -27,6 +27,15 @@
       "compilerOptions": {
         "tsConfigPath": "apps/logging/tsconfig.app.json"
       }
+    },
+    "typeorm-pg": {
+      "type": "application",
+      "root": "apps/typeorm-pg",
+      "entryFile": "main",
+      "sourceRoot": "apps/typeorm-pg/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/typeorm-pg/tsconfig.app.json"
+      }
     }
   }
 }
