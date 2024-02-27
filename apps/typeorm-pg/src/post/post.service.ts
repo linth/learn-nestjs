@@ -13,7 +13,7 @@ export class PostService {
     private postsRepository: Repository<PostEntity>
   ) {}
 
-  @Post()
+  // @Post()
   async create(@Body() createPostDto: CreatePostDto): Promise<PostEntity> {
     const p = new PostEntity();
     p.title = createPostDto.title;
@@ -21,12 +21,12 @@ export class PostService {
     return this.postsRepository.save(p);
   }
 
-  @Get()
+  // @Get()
   findAll(): Promise<PostEntity[]> {
     return this.postsRepository.find();
   }
 
-  @Get(':id')
+  // @Get(':id')
   findOne(@Param('id') id: number): Promise<PostEntity> {
     return this.postsRepository.findOneBy({id});
   }
